@@ -1,0 +1,43 @@
+table {
+  border-collapse: collapse;
+  margin: auto;
+  width: 80%;
+}
+
+th,
+td {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #e6f7ff;
+}
+
+.badge {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  text-transform: capitalize;
+  border-radius: 12px;
+}
+
+.bg-warning {
+  background-color: #f0ad4e;
+  color: #fff;
+}
+
+.bg-critical {
+  background-color: #dc3545;
+  color: #fff;
+}

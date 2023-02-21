@@ -1,0 +1,15 @@
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu li {
+  margin: 0 10px;
+  list-style: none;
+}
+
+.menu li a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}

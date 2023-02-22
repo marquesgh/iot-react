@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import Pagination from '../../components/Pagination';
 import Table from '../../components/Table';
-import EquipmentService from '../../services/EquipmentService';
+import MessageService from '../../services/MessageService';
 
-function InactiveEquipmentPage() {
-  const [equipments, setInactiveEquipments] = useState([]);
+function MessagePage() {
+  const [messages, setMessages] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -15,11 +15,11 @@ function InactiveEquipmentPage() {
   };
 
   useEffect(() => {
-    async function fetchInactiveEquipments() {
+    async function fetchMessages() {
       setIsLoading(true);
       try {
-        const response = await EquipmentService.getInactive(currentPage);
-        setInactiveEquipments(response.data);
+        const response = await MessageService.getAll(currentPage);
+        setMessages(response.data);
         setTotalPages(response.meta.totalPages);
         setCurrentPage(response.meta.currentPage);
       } catch (error) {
@@ -28,23 +28,25 @@ function InactiveEquipmentPage() {
         setIsLoading(false);
       }
     }
-    fetchInactiveEquipments();
+    fetchMessages();
   }, [currentPage]);
 
   const columns = [
+    { key: 'tag', name: 'Tag' },
     { key: 'imei', name: 'IMEI' },
-    { key: 'status', name: 'Status' },
+    { key: 'value', name: 'Value' },
+    { key: 'timestamp', name: 'Timestamp' },
   ];
 
   return (
     <div>
       {error ? (
-        <div>Failed to load inactive equipments: {error}</div>
+        <div>Failed to load Messages: {error}</div>
       ) : isLoading ? (
-        <div>Loading inactive equipments...</div>
+        <div>Loading Messages...</div>
       ) : (
         <div>
-          <Table title="Inactive Equipments" columns={columns} data={equipments} />
+          <Table title="Messages" columns={columns} data={messages} />
           <Pagination total={totalPages} current={currentPage} onPageChange={handlePageChange} />
         </div>
       )}
@@ -52,4 +54,4 @@ function InactiveEquipmentPage() {
   );
 }
 
-export default InactiveEquipmentPage;
+export default MessagePage;

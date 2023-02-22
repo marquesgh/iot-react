@@ -9,7 +9,6 @@ function ActiveEquipmentPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [limit, setLimit] = useState(10);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -30,9 +29,12 @@ function ActiveEquipmentPage() {
       }
     }
     fetchActiveEquipments();
-  }, [currentPage, limit]);
+  }, [currentPage]);
 
-  const columns = [{ key: 'imei', name: 'IMEI' }];
+  const columns = [
+    { key: 'imei', name: 'IMEI' },
+    { key: 'description', name: 'Description' },
+  ];
 
   return (
     <div>

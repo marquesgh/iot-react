@@ -14,7 +14,6 @@ function SituationEquipmentPage() {
       try {
         const response = await EquipmentService.getSituation();
         setSituationEquipments([response.data]);
-        console.log(equipments);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -32,6 +31,7 @@ function SituationEquipmentPage() {
         <div>Loading equipments...</div>
       ) : (
         <div>
+          <h4>Equipments on and off</h4>
           <BarChart
             width={500}
             height={300}
@@ -48,8 +48,8 @@ function SituationEquipmentPage() {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="on" fill="#8884d8" />
-            <Bar dataKey="off" fill="#82ca9d" />
+            <Bar dataKey="on" fill="#82ca9d" />
+            <Bar dataKey="off" fill="#8884d8" />
           </BarChart>
         </div>
       )}

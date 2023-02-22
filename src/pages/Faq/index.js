@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import Pagination from '../../components/Pagination';
 import Table from '../../components/Table';
 import FaqService from '../../services/FaqService';
-import './Faq.css';
 
 function FaqPage() {
   const [faqs, setFaqs] = useState([]);
@@ -10,7 +9,6 @@ function FaqPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [limit, setLimit] = useState(10);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -31,7 +29,7 @@ function FaqPage() {
       }
     }
     fetchFaqs();
-  }, [currentPage, limit]);
+  }, [currentPage]);
 
   const columns = [
     { key: 'description', name: 'Description' },

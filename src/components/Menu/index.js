@@ -7,6 +7,9 @@ const Menu = () => {
     <nav>
       <ul className="menu">
         <li>
+          <Link to="/message">Messages</Link>
+        </li>
+        <li>
           <Link to="/active">Actives</Link>
         </li>
         <li>

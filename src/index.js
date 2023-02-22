@@ -6,6 +6,7 @@ import './index.css';
 import ActiveEquipmentPage from './pages/ActiveEquipment';
 import FaqPage from './pages/Faq';
 import InactiveEquipmentPage from './pages/InactiveEquipment';
+import MessagePage from './pages/Message';
 import SituationEquipmentPage from './pages/SituationEquipment';
 import reportWebVitals from './reportWebVitals';
 
@@ -15,6 +16,8 @@ root.render(
     <Router>
       <Menu />
       <Routes>
+        <Route exact path="/" element={<MessagePage />} />
+        <Route exact path="/message" element={<MessagePage />} />
         <Route exact path="/active" element={<ActiveEquipmentPage />} />
         <Route exact path="/inactive" element={<InactiveEquipmentPage />} />
         <Route exact path="/situation" element={<SituationEquipmentPage />} />

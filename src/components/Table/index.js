@@ -41,7 +41,7 @@ function Table({ title, columns, data }) {
       <tfoot>
         {data.length === 0 && (
           <tr>
-            <td>No data to display.</td>
+            <td colSpan={columns.length}>No data to display.</td>
           </tr>
         )}
       </tfoot>
